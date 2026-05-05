@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PlayWise | Entertainment Budget Tracker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #f7f9ff;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: #2563eb;
+    }
+
+    .logo span {
+      color: #7c3aed;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #374151;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #2563eb;
+    }
+
+    .hero {
+      padding: 90px 8%;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+    }
+
+    .hero h1 {
+      font-size: 56px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #4b5563;
+      margin-bottom: 30px;
+      max-width: 620px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 14px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2563eb;
+      border: 2px solid #dbeafe;
+    }
+
+    .phone-card {
+      background: #111827;
+      color: white;
+      border-radius: 35px;
+      padding: 25px;
+      max-width: 370px;
+      margin: auto;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .screen {
+      background: white;
+      color: #111827;
+      border-radius: 25px;
+      padding: 24px;
+    }
+
+    .screen h3 {
+      color: #2563eb;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .amount {
+      font-size: 42px;
+      font-weight: 800;
+      margin: 18px 0;
+    }
+
+    .progress {
+      background: #dbeafe;
+      height: 12px;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 15px 0;
+    }
+
+    .progress span {
+      display: block;
+      width: 62%;
+      height: 100%;
+      background: linear-gradient(135deg, #22c55e, #2563eb);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .mini-card {
+      background: #f3f4f6;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 80px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #6b7280;
+      font-size: 18px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .feature-card .icon {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .feature-card p {
+      color: #6b7280;
+    }
+
+    .problem {
+      background: #111827;
+      color: white;
+      border-radius: 30px;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .problem h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .problem p {
+      color: #d1d5db;
+      font-size: 18px;
+    }
+
+    .stats {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 34px;
+      color: #22c55e;
+    }
+
+    .mission-vision {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .mv-card {
+      background: white;
+      padding: 35px;
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .mv-card h3 {
+      font-size: 28px;
+      color: #2563eb;
+      margin-bottom: 15px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    .step {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 15px;
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      color: white;
+      border-radius: 30px;
+      padding: 60px 30px;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 25px;
+      color: #e0e7ff;
+    }
+
+    .cta .btn-primary {
+      background: white;
+      color: #2563eb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #6b7280;
+      background: white;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .problem,
+      .mission-vision {
+        grid-template-columns: 1fr;
+      }
+
+      .features,
+      .steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 6%;
+      }
+
+      section {
+        padding: 60px 6%;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .problem {
+        padding: 35px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Play<span>Wise</span></div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#mission">Mission</a>
+      <a href="#how">How It Works</a>
+      <a href="#start">Get Started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>Track Your Fun. <span>Control Your Money.</span></h1>
+        <p>
+          PlayWise helps young adults track entertainment spending, including streaming subscriptions, gaming purchases, in-game items, music, and events — all in one simple app.
+        </p>
+        <div class="buttons">
+          <a href="#start" class="btn-primary">Start Tracking</a>
+          <a href="#features" class="btn-secondary">Explore Features</a>
+        </div>
+      </div>
+
+      <div class="phone-card">
+        <div class="screen">
+          <h3>PlayWise</h3>
+          <p>Monthly Entertainment Spend</p>
+          <div class="amount">$248.60</div>
+          <p>of $400 budget</p>
+          <div class="progress"><span></span></div>
+          <p>62% used this month</p>
+
+          <div class="mini-grid">
+            <div class="mini-card">🎬 Streaming<br />$112.40</div>
+            <div class="mini-card">🎮 Gaming<br />$86.45</div>
+            <div class="mini-card">🎵 Music<br />$24.99</div>
+            <div class="mini-card">🎟 Events<br />$24.76</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="problem">
+        <div>
+          <h2>The Problem</h2>
+          <p>
+            Many people spend money on Netflix, Hulu, Disney+, video games, in-game purchases, music, and other entertainment without realizing how fast it adds up. PlayWise brings those costs together so users can see where their money is going.
+          </p>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <strong>$100–$300</strong>
+            Possible monthly entertainment spending without tracking.
+          </div>
+          <div class="stat">
+            <strong>1 Place</strong>
+            Track subscriptions, games, and entertainment expenses together.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="section-title">
+        <h2>App Features</h2>
+        <p>Simple tools that help users spend smarter while still enjoying entertainment.</p>
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <div class="icon">📺</div>
+          <h3>Subscription Tracking</h3>
+          <p>Track monthly streaming services like Netflix, Hulu, Disney+, and more.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🎮</div>
+          <h3>Gaming Purchases</h3>
+          <p>Monitor game purchases, add-ons, memberships, and in-game spending.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">🔔</div>
+          <h3>Smart Alerts</h3>
+          <p>Get reminders before payments and alerts when spending gets too high.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">📊</div>
+          <h3>Monthly Reports</h3>
+          <p>See entertainment spending by category and make better budgeting decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <div class="section-title">
+        <h2>Mission & Vision</h2>
+        <p>The purpose behind PlayWise.</p>
+      </div>
+
+      <div class="mission-vision">
+        <div class="mv-card">
+          <h3>Mission Statement</h3>
+          <p>
+            To help young adults take control of their entertainment spending by providing a simple, smart, and transparent way to track subscriptions, gaming purchases, and digital expenses.
+          </p>
+        </div>
+
+        <div class="mv-card">
+          <h3>Vision Statement</h3>
+          <p>
+            To become the leading platform for managing entertainment finances worldwide, empowering millions of users to spend smarter while still enjoying what they love.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>PlayWise makes entertainment budgeting easy.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Add Your Subscriptions</h3>
+          <p>Enter streaming, gaming, music, and other entertainment services.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Set a Budget</h3>
+          <p>Choose how much you want to spend each month on entertainment.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Track Spending</h3>
+          <p>See where your money goes and what categories cost the most.</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Save Smarter</h3>
+          <p>Use alerts and reports to reduce waste and make better choices.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="cta">
+        <h2>Ready to Spend Smarter?</h2>
+        <p>PlayWise helps you enjoy entertainment without losing control of your budget.</p>
+        <a href="#" class="btn-primary">Download App</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 PlayWise. Entertainment budgeting made simple.</p>
+  </footer>
+</body>
+</html>
