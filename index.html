@@ -13,27 +13,28 @@
     }
 
     body {
-      background: #f7f9ff;
+      background: #f6f8ff;
       color: #111827;
       line-height: 1.6;
     }
 
     header {
-      background: white;
-      padding: 20px 8%;
+      background: #ffffff;
+      padding: 18px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
     .logo {
-      font-size: 28px;
-      font-weight: 800;
+      font-size: 30px;
+      font-weight: 900;
       color: #2563eb;
+      text-decoration: none;
     }
 
     .logo span {
@@ -41,30 +42,33 @@
     }
 
     nav a {
-      margin-left: 25px;
+      margin-left: 24px;
       text-decoration: none;
       color: #374151;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     nav a:hover {
       color: #2563eb;
     }
 
+    section {
+      padding: 80px 8%;
+    }
+
     .hero {
-      padding: 90px 8%;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
+      gap: 45px;
       align-items: center;
+      min-height: 85vh;
       background: linear-gradient(135deg, #eff6ff, #f5f3ff);
     }
 
     .hero h1 {
-      font-size: 56px;
+      font-size: 58px;
       line-height: 1.1;
       margin-bottom: 20px;
-      color: #111827;
     }
 
     .hero h1 span {
@@ -75,84 +79,72 @@
       font-size: 20px;
       color: #4b5563;
       margin-bottom: 30px;
-      max-width: 620px;
+      max-width: 650px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary,
-    .btn-secondary {
+    .btn {
+      display: inline-block;
       padding: 14px 24px;
       border-radius: 12px;
       text-decoration: none;
-      font-weight: 700;
-      display: inline-block;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, #2563eb, #7c3aed);
       color: white;
-      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.28);
     }
 
     .btn-secondary {
-      background: white;
+      background: #ffffff;
       color: #2563eb;
       border: 2px solid #dbeafe;
+      margin-left: 10px;
     }
 
-    .phone-card {
-      background: #111827;
-      color: white;
-      border-radius: 35px;
-      padding: 25px;
-      max-width: 370px;
-      margin: auto;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    }
-
-    .screen {
+    .dashboard-preview,
+    .card {
       background: white;
-      color: #111827;
-      border-radius: 25px;
-      padding: 24px;
+      border-radius: 24px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+      padding: 28px;
     }
 
-    .screen h3 {
+    .dashboard-preview h3 {
       color: #2563eb;
       font-size: 28px;
       margin-bottom: 10px;
     }
 
-    .amount {
-      font-size: 42px;
-      font-weight: 800;
+    .big-amount {
+      font-size: 48px;
+      font-weight: 900;
+      margin: 18px 0 5px;
+    }
+
+    .progress-bar {
+      height: 14px;
+      background: #dbeafe;
+      border-radius: 99px;
+      overflow: hidden;
       margin: 18px 0;
     }
 
-    .progress {
-      background: #dbeafe;
-      height: 12px;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 15px 0;
-    }
-
-    .progress span {
-      display: block;
-      width: 62%;
+    .progress-fill {
       height: 100%;
-      background: linear-gradient(135deg, #22c55e, #2563eb);
+      width: 0%;
+      background: linear-gradient(135deg, #22c55e, #2563eb, #7c3aed);
+      transition: width 0.4s ease;
     }
 
     .mini-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 14px;
       margin-top: 20px;
     }
 
@@ -160,11 +152,7 @@
       background: #f3f4f6;
       padding: 16px;
       border-radius: 16px;
-      font-weight: 700;
-    }
-
-    section {
-      padding: 80px 8%;
+      font-weight: 800;
     }
 
     .section-title {
@@ -173,7 +161,7 @@
     }
 
     .section-title h2 {
-      font-size: 40px;
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
@@ -185,36 +173,22 @@
     .features {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
+      gap: 24px;
     }
 
     .feature-card {
       background: white;
       padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-      transition: transform 0.3s ease;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-8px);
+      border-radius: 22px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
     .feature-card .icon {
-      font-size: 34px;
-      margin-bottom: 15px;
+      font-size: 36px;
+      margin-bottom: 14px;
     }
 
-    .feature-card h3 {
-      margin-bottom: 10px;
-      color: #111827;
-    }
-
-    .feature-card p {
-      color: #6b7280;
-    }
-
-    .problem {
+    .problem-box {
       background: #111827;
       color: white;
       border-radius: 30px;
@@ -225,26 +199,16 @@
       align-items: center;
     }
 
-    .problem h2 {
-      font-size: 38px;
-      margin-bottom: 20px;
-    }
-
-    .problem p {
+    .problem-box p {
       color: #d1d5db;
       font-size: 18px;
-    }
-
-    .stats {
-      display: grid;
-      gap: 18px;
     }
 
     .stat {
       background: rgba(255, 255, 255, 0.1);
       border-radius: 18px;
       padding: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      margin-bottom: 15px;
     }
 
     .stat strong {
@@ -253,50 +217,87 @@
       color: #22c55e;
     }
 
+    .app-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    label {
+      font-weight: 800;
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      font-size: 15px;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .summary-card {
+      background: #f3f4f6;
+      padding: 18px;
+      border-radius: 16px;
+    }
+
+    .summary-card strong {
+      display: block;
+      font-size: 26px;
+      color: #2563eb;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background: #eef2ff;
+    }
+
+    .delete-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
     .mission-vision {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 25px;
+      gap: 24px;
     }
 
-    .mv-card {
-      background: white;
-      padding: 35px;
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
-
-    .mv-card h3 {
-      font-size: 28px;
+    .mission-vision h3 {
       color: #2563eb;
-      margin-bottom: 15px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      text-align: center;
-    }
-
-    .step {
-      background: white;
-      padding: 30px;
-      border-radius: 20px;
-    }
-
-    .step-number {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto 15px;
-      font-weight: 800;
-      font-size: 20px;
+      font-size: 28px;
+      margin-bottom: 12px;
     }
 
     .cta {
@@ -313,12 +314,12 @@
     }
 
     .cta p {
-      font-size: 18px;
-      margin-bottom: 25px;
       color: #e0e7ff;
+      margin-bottom: 25px;
+      font-size: 18px;
     }
 
-    .cta .btn-primary {
+    .cta .btn {
       background: white;
       color: #2563eb;
     }
@@ -326,148 +327,191 @@
     footer {
       text-align: center;
       padding: 30px;
-      color: #6b7280;
       background: white;
+      color: #6b7280;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
       .hero,
-      .problem,
+      .problem-box,
+      .app-grid,
       .mission-vision {
         grid-template-columns: 1fr;
       }
 
       .features,
-      .steps {
+      .summary-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .hero h1 {
-        font-size: 42px;
       }
 
       nav {
         display: none;
       }
+
+      .hero h1 {
+        font-size: 42px;
+      }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
+      section {
+        padding: 55px 6%;
+      }
+
       .features,
-      .steps {
+      .summary-grid,
+      .mini-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        padding: 60px 6%;
+      .btn-secondary {
+        margin-left: 0;
+        margin-top: 10px;
       }
 
-      section {
-        padding: 60px 6%;
-      }
-
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .problem {
-        padding: 35px;
+      table {
+        font-size: 13px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Play<span>Wise</span></div>
+    <a href="#home" class="logo">Play<span>Wise</span></a>
     <nav>
       <a href="#features">Features</a>
+      <a href="#tracker">Tracker</a>
       <a href="#mission">Mission</a>
-      <a href="#how">How It Works</a>
       <a href="#start">Get Started</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="home">
       <div>
         <h1>Track Your Fun. <span>Control Your Money.</span></h1>
         <p>
-          PlayWise helps young adults track entertainment spending, including streaming subscriptions, gaming purchases, in-game items, music, and events — all in one simple app.
+          PlayWise is a web-based entertainment budget tracker that helps users manage streaming subscriptions, gaming purchases, music services, events, and other digital entertainment expenses in one place.
         </p>
-        <div class="buttons">
-          <a href="#start" class="btn-primary">Start Tracking</a>
-          <a href="#features" class="btn-secondary">Explore Features</a>
-        </div>
+        <a href="#tracker" class="btn btn-primary">Start Tracking Now</a>
+        <a href="#features" class="btn btn-secondary">See Features</a>
       </div>
 
-      <div class="phone-card">
-        <div class="screen">
-          <h3>PlayWise</h3>
-          <p>Monthly Entertainment Spend</p>
-          <div class="amount">$248.60</div>
-          <p>of $400 budget</p>
-          <div class="progress"><span></span></div>
-          <p>62% used this month</p>
-
-          <div class="mini-grid">
-            <div class="mini-card">🎬 Streaming<br />$112.40</div>
-            <div class="mini-card">🎮 Gaming<br />$86.45</div>
-            <div class="mini-card">🎵 Music<br />$24.99</div>
-            <div class="mini-card">🎟 Events<br />$24.76</div>
-          </div>
+      <div class="dashboard-preview">
+        <h3>Entertainment Dashboard</h3>
+        <p>This Month’s Spending</p>
+        <div class="big-amount" id="previewTotal">$0.00</div>
+        <p><span id="previewPercent">0%</span> of your monthly budget used</p>
+        <div class="progress-bar"><div class="progress-fill" id="previewProgress"></div></div>
+        <div class="mini-grid">
+          <div class="mini-card">🎬 Streaming<br><span id="streamingTotal">$0.00</span></div>
+          <div class="mini-card">🎮 Gaming<br><span id="gamingTotal">$0.00</span></div>
+          <div class="mini-card">🎵 Music<br><span id="musicTotal">$0.00</span></div>
+          <div class="mini-card">🎟 Events<br><span id="eventsTotal">$0.00</span></div>
         </div>
       </div>
     </section>
 
     <section>
-      <div class="problem">
+      <div class="problem-box">
         <div>
-          <h2>The Problem</h2>
+          <h2>The Problem PlayWise Solves</h2>
           <p>
-            Many people spend money on Netflix, Hulu, Disney+, video games, in-game purchases, music, and other entertainment without realizing how fast it adds up. PlayWise brings those costs together so users can see where their money is going.
+            Many people pay for streaming services, video games, in-game items, music apps, and entertainment subscriptions without realizing how much they spend every month. PlayWise helps bring those costs together in one clear dashboard.
           </p>
         </div>
-        <div class="stats">
-          <div class="stat">
-            <strong>$100–$300</strong>
-            Possible monthly entertainment spending without tracking.
-          </div>
-          <div class="stat">
-            <strong>1 Place</strong>
-            Track subscriptions, games, and entertainment expenses together.
-          </div>
+        <div>
+          <div class="stat"><strong>$100–$300</strong> Common monthly entertainment spending range.</div>
+          <div class="stat"><strong>One Website</strong> A simple place to track entertainment expenses.</div>
         </div>
       </div>
     </section>
 
     <section id="features">
       <div class="section-title">
-        <h2>App Features</h2>
-        <p>Simple tools that help users spend smarter while still enjoying entertainment.</p>
+        <h2>Website Features</h2>
+        <p>PlayWise gives users simple tools to understand and control entertainment spending.</p>
       </div>
 
       <div class="features">
         <div class="feature-card">
           <div class="icon">📺</div>
           <h3>Subscription Tracking</h3>
-          <p>Track monthly streaming services like Netflix, Hulu, Disney+, and more.</p>
+          <p>Add services like Netflix, Hulu, Disney+, Spotify, and YouTube Premium.</p>
         </div>
-
         <div class="feature-card">
           <div class="icon">🎮</div>
-          <h3>Gaming Purchases</h3>
-          <p>Monitor game purchases, add-ons, memberships, and in-game spending.</p>
+          <h3>Gaming Expenses</h3>
+          <p>Track games, battle passes, in-game items, and gaming memberships.</p>
         </div>
-
-        <div class="feature-card">
-          <div class="icon">🔔</div>
-          <h3>Smart Alerts</h3>
-          <p>Get reminders before payments and alerts when spending gets too high.</p>
-        </div>
-
         <div class="feature-card">
           <div class="icon">📊</div>
-          <h3>Monthly Reports</h3>
-          <p>See entertainment spending by category and make better budgeting decisions.</p>
+          <h3>Budget Dashboard</h3>
+          <p>See total spending, remaining budget, and category breakdowns.</p>
+        </div>
+        <div class="feature-card">
+          <div class="icon">🔔</div>
+          <h3>Spending Alerts</h3>
+          <p>Get a warning when you are close to or above your monthly budget.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tracker">
+      <div class="section-title">
+        <h2>Try the PlayWise Tracker</h2>
+        <p>Add entertainment expenses below and watch the dashboard update.</p>
+      </div>
+
+      <div class="app-grid">
+        <div class="card">
+          <h3>Add Entertainment Expense</h3>
+          <br>
+          <label for="budget">Monthly Budget</label>
+          <input type="number" id="budget" placeholder="Example: 300" min="0" />
+
+          <label for="name">Expense Name</label>
+          <input type="text" id="name" placeholder="Example: Netflix" />
+
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="Streaming">Streaming</option>
+            <option value="Gaming">Gaming</option>
+            <option value="Music">Music</option>
+            <option value="Events">Events</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="amount">Monthly Cost</label>
+          <input type="number" id="amount" placeholder="Example: 15.99" min="0" step="0.01" />
+
+          <button class="btn btn-primary" onclick="addExpense()">Add Expense</button>
+          <button class="btn btn-secondary" onclick="resetTracker()">Reset</button>
+        </div>
+
+        <div class="card">
+          <h3>Your Dashboard</h3>
+          <br>
+          <div class="summary-grid">
+            <div class="summary-card">Total Spent<strong id="totalSpent">$0.00</strong></div>
+            <div class="summary-card">Budget Left<strong id="budgetLeft">$0.00</strong></div>
+            <div class="summary-card">Status<strong id="statusText">Ready</strong></div>
+          </div>
+
+          <div class="progress-bar"><div class="progress-fill" id="mainProgress"></div></div>
+          <p id="alertText">Set a budget and add expenses to start tracking.</p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Cost</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTable"></tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -479,51 +523,17 @@
       </div>
 
       <div class="mission-vision">
-        <div class="mv-card">
+        <div class="card">
           <h3>Mission Statement</h3>
           <p>
-            To help young adults take control of their entertainment spending by providing a simple, smart, and transparent way to track subscriptions, gaming purchases, and digital expenses.
+            PlayWise’s mission is to help users take control of their entertainment spending by giving them one simple website to track subscriptions, gaming purchases, and digital entertainment expenses.
           </p>
         </div>
-
-        <div class="mv-card">
+        <div class="card">
           <h3>Vision Statement</h3>
           <p>
-            To become the leading platform for managing entertainment finances worldwide, empowering millions of users to spend smarter while still enjoying what they love.
+            PlayWise’s vision is to become a trusted online platform that helps people enjoy entertainment while making smarter financial decisions.
           </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="how">
-      <div class="section-title">
-        <h2>How It Works</h2>
-        <p>PlayWise makes entertainment budgeting easy.</p>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Add Your Subscriptions</h3>
-          <p>Enter streaming, gaming, music, and other entertainment services.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Set a Budget</h3>
-          <p>Choose how much you want to spend each month on entertainment.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Track Spending</h3>
-          <p>See where your money goes and what categories cost the most.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Save Smarter</h3>
-          <p>Use alerts and reports to reduce waste and make better choices.</p>
         </div>
       </div>
     </section>
@@ -531,8 +541,8 @@
     <section id="start">
       <div class="cta">
         <h2>Ready to Spend Smarter?</h2>
-        <p>PlayWise helps you enjoy entertainment without losing control of your budget.</p>
-        <a href="#" class="btn-primary">Download App</a>
+        <p>Use PlayWise to track your entertainment budget directly from the website.</p>
+        <a href="#tracker" class="btn">Start Tracking Now</a>
       </div>
     </section>
   </main>
@@ -540,5 +550,119 @@
   <footer>
     <p>© 2026 PlayWise. Entertainment budgeting made simple.</p>
   </footer>
+
+  <script>
+    let expenses = JSON.parse(localStorage.getItem("playwiseExpenses")) || [];
+    let budget = Number(localStorage.getItem("playwiseBudget")) || 300;
+
+    document.getElementById("budget").value = budget;
+
+    function formatMoney(value) {
+      return "$" + Number(value).toFixed(2);
+    }
+
+    function saveData() {
+      localStorage.setItem("playwiseExpenses", JSON.stringify(expenses));
+      localStorage.setItem("playwiseBudget", budget);
+    }
+
+    function addExpense() {
+      const name = document.getElementById("name").value.trim();
+      const category = document.getElementById("category").value;
+      const amount = Number(document.getElementById("amount").value);
+      budget = Number(document.getElementById("budget").value) || 0;
+
+      if (!name || amount <= 0) {
+        alert("Please enter an expense name and a valid amount.");
+        return;
+      }
+
+      expenses.push({ name, category, amount });
+      document.getElementById("name").value = "";
+      document.getElementById("amount").value = "";
+
+      saveData();
+      updateDashboard();
+    }
+
+    function deleteExpense(index) {
+      expenses.splice(index, 1);
+      saveData();
+      updateDashboard();
+    }
+
+    function resetTracker() {
+      if (confirm("Are you sure you want to reset the tracker?")) {
+        expenses = [];
+        budget = 300;
+        document.getElementById("budget").value = budget;
+        saveData();
+        updateDashboard();
+      }
+    }
+
+    function categoryTotal(category) {
+      return expenses
+        .filter(expense => expense.category === category)
+        .reduce((sum, expense) => sum + expense.amount, 0);
+    }
+
+    function updateDashboard() {
+      budget = Number(document.getElementById("budget").value) || 0;
+      saveData();
+
+      const total = expenses.reduce((sum, expense) => sum + expense.amount, 0);
+      const remaining = budget - total;
+      const percent = budget > 0 ? Math.min((total / budget) * 100, 100) : 0;
+      const exactPercent = budget > 0 ? Math.round((total / budget) * 100) : 0;
+
+      document.getElementById("totalSpent").textContent = formatMoney(total);
+      document.getElementById("budgetLeft").textContent = formatMoney(remaining);
+      document.getElementById("mainProgress").style.width = percent + "%";
+
+      document.getElementById("previewTotal").textContent = formatMoney(total);
+      document.getElementById("previewPercent").textContent = exactPercent + "%";
+      document.getElementById("previewProgress").style.width = percent + "%";
+
+      document.getElementById("streamingTotal").textContent = formatMoney(categoryTotal("Streaming"));
+      document.getElementById("gamingTotal").textContent = formatMoney(categoryTotal("Gaming"));
+      document.getElementById("musicTotal").textContent = formatMoney(categoryTotal("Music"));
+      document.getElementById("eventsTotal").textContent = formatMoney(categoryTotal("Events"));
+
+      const statusText = document.getElementById("statusText");
+      const alertText = document.getElementById("alertText");
+
+      if (budget <= 0) {
+        statusText.textContent = "Set Budget";
+        alertText.textContent = "Please enter a monthly budget.";
+      } else if (total > budget) {
+        statusText.textContent = "Over Budget";
+        alertText.textContent = "Warning: You are over your entertainment budget.";
+      } else if (exactPercent >= 80) {
+        statusText.textContent = "Close Limit";
+        alertText.textContent = "Careful: You are close to your monthly entertainment budget.";
+      } else {
+        statusText.textContent = "On Track";
+        alertText.textContent = "Great job. You are staying within your entertainment budget.";
+      }
+
+      const table = document.getElementById("expenseTable");
+      table.innerHTML = "";
+
+      expenses.forEach((expense, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${expense.name}</td>
+          <td>${expense.category}</td>
+          <td>${formatMoney(expense.amount)}</td>
+          <td><button class="delete-btn" onclick="deleteExpense(${index})">Delete</button></td>
+        `;
+        table.appendChild(row);
+      });
+    }
+
+    document.getElementById("budget").addEventListener("input", updateDashboard);
+    updateDashboard();
+  </script>
 </body>
 </html>
